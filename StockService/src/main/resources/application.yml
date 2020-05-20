@@ -1,0 +1,30 @@
+#微服务自己的服务端口
+server:
+  port: 8082
+#微服务的服务名
+spring:
+  application:
+    name: stock-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true #显示执行的sql语句
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#eureka注册中心的url路径
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#日志设置级别
+logging:
+  level:
+    com.bw: debug
